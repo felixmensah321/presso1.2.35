@@ -1,0 +1,37 @@
+{
+  "defaultPurchasePointId": [
+    "default",
+    "default / online",
+    "online"
+  ],
+  "envDev": true,
+  "DataReturned": {
+    "sku": null,
+    "categoryId": 44,
+    "purchasePointId": "default",
+    "nespressoId": null,
+    "guest": "yes",
+    "reg": "yes",
+    "cust-data": null,
+    "opt-in": "yes"
+  },
+  "storeMapping": {
+    "en": "nespresso_en",
+    "fr": "nespresso_fr",
+    "it": "nespresso_it",
+    "de": "nespresso_de"
+  },
+  "gtm": {
+    "market": "CH",
+    "landscape": "Twint-Standalone",
+    "currency": "CHF",
+    "checkoutMainPaymentMethod": "QR",
+    "checkoutPaymentMethods": "TWINT",
+    "brand": "Nespresso",
+    "country": "Switzerland",
+    "list": "Products | Nespresso",
+    "affiliation": "TWINT",
+    "pageTechnology": "Multiple",
+    "segmentBusiness": "B2C"
+  }
+}

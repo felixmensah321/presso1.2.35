@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "name": "Nespresso - Twint",
+    "lastOpened": 0,
+    "created": 1562141506655
+  },
+  "iconSets": [
+    {
+      "selection": [
+        {
+          "order": 2,
+          "id": 2,
+          "name": "plus",
+          "prevSize": 32,
+          "code": 59648,
+          "tempChar": ""
+        },
+        {
+          "order": 3,
+          "id": 1,
+          "name": "minus",
+          "prevSize": 32,
+          "code": 59649,
+          "tempChar": ""
+        },
+        {
+          "order": 4,
+          "id": 0,
+          "name": "arrow",
+          "prevSize": 32,
+          "code": 59650,
+          "tempChar": ""
+        }
+      ],
+      "id": 0,
+      "metadata": {
+        "name": "Untitled Set",
+        "importSize": {
+          "width": 50,
+          "height": 50
+        }
+      },
+      "height": 1024,
+      "prevSize": 32,
+      "icons": [
+        {
+          "id": 2,
+          "paths": [
+            "M471.040 184.32v286.72h-286.72v81.92h286.72v286.72h81.92v-286.72h286.72v-81.92h-286.72v-286.72z"
+          ],
+          "attrs": [],
+          "isMulticolor": false,
+          "isMulticolor2": false,
+          "grid": 0,
+          "tags": [
+            "plus"
+          ],
+          "colorPermutations": {}
+        },
+        {
+          "id": 1,
+          "paths": [
+            "M184.32 471.040v81.92h655.36v-81.92z"
+          ],
+          "attrs": [],
+          "isMulticolor": false,
+          "isMulticolor2": false,
+          "grid": 0,
+          "tags": [
+            "minus"
+          ],
+          "colorPermutations": {}
+        },
+        {
+          "id": 0,
+          "paths": [
+            "M557.696 512l-163.029-163.029c-17.664-17.664-17.664-46.336 0-64v0c17.664-17.664 46.336-17.664 64 0l196.864 196.864c16.683 16.683 16.683 43.691 0 60.331l-196.864 196.864c-17.664 17.664-46.336 17.664-64 0v0c-17.664-17.664-17.664-46.336 0-64l163.029-163.029z"
+          ],
+          "attrs": [
+            {}
+          ],
+          "isMulticolor": false,
+          "isMulticolor2": false,
+          "grid": 0,
+          "tags": [
+            "arrow"
+          ]
+        }
+      ],
+      "invisible": false,
+      "colorThemes": []
+    }
+  ],
+  "uid": -1,
+  "preferences": {
+    "showGlyphs": true,
+    "showCodes": true,
+    "showQuickUse": true,
+    "showQuickUse2": true,
+    "showSVGs": true,
+    "fontPref": {
+      "prefix": "icon-",
+      "metadata": {
+        "fontFamily": "nespresso-twint-ico",
+        "majorVersion": 1,
+        "minorVersion": 0
+      },
+      "metrics": {
+        "emSize": 1024,
+        "baseline": 6.25,
+        "whitespace": 50
+      },
+      "embed": false,
+      "showSelector": true,
+      "showMetrics": true,
+      "showMetadata": true,
+      "showVersion": true
+    },
+    "imagePref": {
+      "prefix": "icon-",
+      "png": true,
+      "useClassSelector": true,
+      "color": 0,
+      "bgColor": 16777215
+    },
+    "historySize": 50,
+    "gridSize": 16
+  }
+}

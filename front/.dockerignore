@@ -1,0 +1,10 @@
+*
+!config/
+!src/
+
+!.eslintignore
+!.eslintrc.js
+!index.html
+!Nespresso - Twint.json
+!package.json
+!package-lock.json
