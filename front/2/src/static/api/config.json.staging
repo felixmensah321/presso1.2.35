@@ -1,0 +1,9 @@
+{
+  "path": "https://staging-admin.shop-ch.nespresso.com/rest/",
+  "bearer": "5wa74ub66yz161qf8mkv5h5xbui555jg",
+  "site": "https://staging-admin.shop-ch.nespresso.com/",
+  "swisspost": "https://wedec.post.ch/api/address/v1/",
+  "isEnvProd": false
+}
+
+
