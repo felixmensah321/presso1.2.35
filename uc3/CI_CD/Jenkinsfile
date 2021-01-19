@@ -1,0 +1,68 @@
+pipeline {
+    agent {
+        kubernetes {
+            yamlFile 'CI_CD/BuildPod.yaml'
+            defaultContainer 'docker'
+        }
+    }
+
+    options {
+        buildDiscarder(logRotator(artifactDaysToKeepStr: '5', artifactNumToKeepStr: '5', numToKeepStr: '20'))
+        timeout(time: 20, unit: 'MINUTES')
+    }
+
+    stages {
+        stage('Copy config file') {
+            when {
+                expression { env.BRANCH_NAME == 'master' || env.BRANCH_NAME  ==~ "(?i)(release)-.*"  }
+            }
+
+            steps {
+                script {
+                    if ( env.BRANCH_NAME == 'master') {
+                        withCredentials([file(credentialsId: 'CONFIG_PROD', variable: 'CONFIG_FILE')]) {
+                            sh "cp --remove-destination \"$CONFIG_FILE\" src/static/api/config.json"
+                        }
+                    } 
+                    else {
+                        withCredentials([file(credentialsId: 'CONFIG_STG', variable: 'CONFIG_FILE')]) {
+                            sh "cp --remove-destination \"$CONFIG_FILE\" src/static/api/config.json"
+                        }   
+                    }
+                }
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'docker build --tag msebnpwsakspracr1.azurecr.io/twint-frontend .'
+            }
+        }
+
+        stage('Tagging and Push') {
+            when {
+                expression { env.BRANCH_NAME == 'master' || env.BRANCH_NAME  ==~ "(?i)(release)-.*"  }
+            }
+            steps {
+                // Tagging
+                script {
+                    if (env.BRANCH_NAME == 'master') {
+                        sh 'docker tag msebnpwsakspracr1.azurecr.io/twint-frontend msebnpwsakspracr1.azurecr.io/twint-frontend:stable'
+                    }
+                    sh 'docker tag msebnpwsakspracr1.azurecr.io/twint-frontend msebnpwsakspracr1.azurecr.io/twint-frontend:latest'
+                }
+
+                // Push
+                withCredentials([usernamePassword(credentialsId: 'AZURE_CR_CREDENTIALS', usernameVariable: 'REG_USER', passwordVariable: 'REG_PASS')]) {
+                    sh "docker login --username \"${REG_USER}\" --password \"${REG_PASS}\" msebnpwsakspracr1.azurecr.io"
+                }
+                script {
+                    if (env.BRANCH_NAME == 'master') {
+                        sh 'docker push msebnpwsakspracr1.azurecr.io/twint-frontend:stable'
+                    }
+                }
+                sh 'docker push msebnpwsakspracr1.azurecr.io/twint-frontend:latest'
+            }
+        }
+    }
+}
