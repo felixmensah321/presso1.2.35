@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) SQLi (http://www.sqli.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <twint>
+            <notify_checkin>
+                <loyalty>Nespresso</loyalty>
+            </notify_checkin>
+            <soap>
+                <wsdl_uses_fallback>1</wsdl_uses_fallback>
+            </soap>
+        </twint>
+        <front>
+            <default_params>
+                <category>52</category>
+            </default_params>
+        </front>
+    </default>
+</config>

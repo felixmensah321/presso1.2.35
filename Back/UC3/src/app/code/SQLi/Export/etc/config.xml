@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) SQLi (http://www.sqli.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <export>
+            <order>
+                <filename_prefix>orders</filename_prefix>
+                <export_folder>orders_export/</export_folder>
+                <export_cron_schedule>30 16 * * *</export_cron_schedule>
+                <export_cron_schedule2>30 19 * * *</export_cron_schedule2>
+            </order>
+            <xml_purchase_point>
+                <export_sales_movement_code_purchase_point>9990</export_sales_movement_code_purchase_point>
+                <export_order_source_purchase_point>QR</export_order_source_purchase_point>
+                <export_stock_purchase_point>QR</export_stock_purchase_point>
+                <export_delivery_mode_purchase_point>XN</export_delivery_mode_purchase_point>
+                <export_payment_mode_purchase_point>QR</export_payment_mode_purchase_point>
+            </xml_purchase_point>
+            <xml_delivery>
+                <export_sales_movement_code_delivery>9990</export_sales_movement_code_delivery>
+                <export_order_source_delivery>QW</export_order_source_delivery>
+                <export_stock_delivery>AVS</export_stock_delivery>
+                <export_delivery_mode_delivery>TW</export_delivery_mode_delivery>
+                <export_delivery_mode_weekend_delivery>TS</export_delivery_mode_weekend_delivery>
+                <export_payment_mode_delivery>QR</export_payment_mode_delivery>
+            </xml_delivery>
+        </export>
+    </default>
+</config>

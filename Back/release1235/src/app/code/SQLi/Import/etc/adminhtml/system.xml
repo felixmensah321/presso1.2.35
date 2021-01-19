@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) SQLi (http://www.sqli.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="nespresso" translate="label" sortOrder="0">
+            <label>Nespresso</label>
+        </tab>
+        <section id="import" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Import</label>
+            <tab>nespresso</tab>
+            <resource>Nespresso_Configuration::import</resource>
+            <group id="customer" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Customer</label>
+                <field id="filename" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Filename</label>
+                    <comment>Generic filename that will be take for the import (ex: customer_import.csv)</comment>
+                </field>
+                <field id="import_folder" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Import folder</label>
+                    <comment>Folder from where we will import the file inside the /var/import/, put slash at the end (ex: customers_import/, that give us the following location [magento_root]/var/import/customers_import/)</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/ etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="SQLi_Core::twint" title="Twint" translate="title" sortOrder="1">
+                    <resource id="SQLi_Catalog::categories" title="Categories" translate="title" sortOrder="10">
+                        <resource id="SQLi_Catalog::categories_get" title="Get a category" translate="title" sortOrder="10"/>
+                        <resource id="SQLi_Catalog::categories_list" title="Get list of categories" translate="title" sortOrder="20"/>
+                    </resource>
+                    <resource id="SQLi_Catalog::products" title="Products" translate="title" sortOrder="20">
+                        <resource id="SQLi_Catalog::products_get" title="Get products" translate="title" sortOrder="10"/>
+                        <resource id="SQLi_Catalog::energetic_labels" title="Get energetic labels" translate="title" sortOrder="20"/>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

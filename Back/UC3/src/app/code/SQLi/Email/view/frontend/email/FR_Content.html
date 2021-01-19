@@ -1,0 +1,65 @@
+{{template config_path="design/email/header_template"}}
+
+<!-- Row -->
+<table role="presentation" width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="row">
+    <caption>Informations concernant la confirmation de commande</caption>
+    <tr class="bg-section-primary">
+        <td colspan="2" height="40" valign="middle" class="heading">
+            <p class="heading" aria-level="1" role="heading">
+                VOTRE COMMANDE EST CONFIRMÉE
+            </p>
+        </td>
+    </tr>
+    <tr class="bg-section-primary">
+        <td colspan="2" height="43" valign="middle">
+            <img src="https://www.nespresso.com/shared_res/newsletter/transactional/img/hr_light_560_triangle.png" alt="" hspace="0" vspace="0" class="hr-divider">
+        </td>
+    </tr>
+    <tr class="bg-section-primary">
+        <td colspan="2" align="left">
+            <div>
+                <p class="content-p">Chère/Cher {{var order.getBillingAddress().getName()}},</p>
+                <p class="content-p">Merci d'avoir passé commande chez Nespresso !</p>
+                <p class="content-p">Si vous souhaitez des informations complémentaires, n'hésitez pas à nous contacter en utilisant le formulaire suivant :<br/>
+                    <span aria-hidden="true">→ </span>
+                    <a href="https://www.nespresso.com/ch/fr/contactus?utm_id=352d06d1-12ec-4139-a03d-265a5466f053" class="link">Formulaire de contact</a>
+                </p>
+                <p class="content-p">Nous vous souhaitons de délicieux moments café !</p>
+            </div>
+        </td>
+    </tr>
+    <caption>Informations concernant l'expédition</caption>
+    <caption>Informations concernant la facturation</caption>
+    <tr class="tr-section-secondary bg-section-secondary">
+        <td><p role="heading" class="heading-p">Informations d'expédition</p></td>
+        <td><p role="heading" class="heading-p">Informations de facturation</p></td>
+    </tr>
+    <tr class="tr-section-secondary bg-section-secondary">
+        <td>
+            <label class="label">Adresse de livraison :</label>
+            <div align="left">{{var formattedShippingAddress|raw}}
+            </div>
+            <table style="width:100%"><tr class="bg-section-secondary"><td><img src="https://www.nespresso.com/ecom/medias/sys_master/public/9533914906654/media_delivery.png" alt="Delivery" width="80" height="52" hspace="0" vspace="0" border="0" class="img3" style="margin:0 0 0 6%;"></td><td style="font-size: 14px;"><label class="label">Expédié via :</label><br/> Livraison le lendemain</td></tr></table>
+        </td>
+        <td>
+            <label class="label">Paiement effectué par :</label>
+            <table style="width:100%"><tr class="bg-section-secondary"><td>
+                <img src={{media url='images/Twint_payment_logo.jpg'}} alt="Credit card" width="100" height="40" hspace="0" vspace="0" border="0" class="img3" style="max-width: 100px; width: 100px; border-radius: 0px; border: 0px;">
+            </td><td><div align="left">Twint</div>
+                <div align="left">Fr. {{var formated_total}}</div></td></tr></table>
+        </td>
+    </tr>
+    <tr class="bg-section-primary"><td colspan="2"><p style="text-align:center;margin:5% 0 5% 0;"><b>DÉTAILS DE LA COMMANDE</b></p></td></tr>
+    <tr class="bg-section-primary"><td colspan="2"><img src="https://www.nespresso.com/shared_res/newsletter/transactional/img/hr_light_560_triangle.png" role="presentation" alt="" hspace="0" vspace="0" border="0" width="501" class="hr-divider"></td></tr>
+    <tr class="bg-section-primary"><td colspan="2">
+        <table role="grid" align="center" cellspacing="0" cellpadding="0" border="0" class="zebra"
+               style="font-family: Trebuchet MS, Helvetica, arial, sans-serif; font-size: 12px; color: #ffffff; background-color: #1a1a1a !important; text-align: left;width:90%;margin:5% 5% 0 5%;">
+            {{layout handle="sales_email_order_items" order=$order}}
+        </table>
+    </td>
+    </tr>
+    <tr><td colspan="2">
+        {{template config_path="design/email/footer_template"}}
+    </td>
+    </tr>
+</table>

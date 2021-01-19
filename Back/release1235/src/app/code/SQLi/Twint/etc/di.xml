@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) SQLi (http://www.sqli.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Webapi\Controller\Rest">
+        <plugin name="rest-api-log" type="SQLi\Twint\Logger\RestApiLog"/>
+    </type>
+    <type name="Magento\Webapi\Controller\Soap">
+        <plugin name="soap-api-log" type="SQLi\Twint\Logger\SoapApiLog"/>
+    </type>
+    <type name="SQLi\Twint\Logger\Handler\Twint">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="SQLi\Twint\Logger\TwintLogger">
+        <arguments>
+            <argument name="name" xsi:type="string">twintLogger</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="debug" xsi:type="object">SQLi\Twint\Logger\Handler\Twint</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="SQLi\Twint\Api\CheckAndInvalidateInterface"
+                type="SQLi\Twint\Model\CheckAndInvalidate" />
+
+    <virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid">
+        <arguments>
+            <argument name="columns" xsi:type="array">
+                <item name="twint_order_id" xsi:type="string">sales_order.twint_order_id</item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

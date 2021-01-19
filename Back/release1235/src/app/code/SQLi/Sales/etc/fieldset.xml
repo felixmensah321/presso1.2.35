@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) SQLi (http://www.sqli.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:DataObject/etc/fieldset.xsd">
+    <scope id="global">
+        <fieldset id="sales_convert_quote">
+            <field name="nespresso_club_member_id">
+                <aspect name="to_order" />
+            </field>
+            <field name="nespresso_purchase_point_id">
+                <aspect name="to_order" />
+            </field>
+            <field name="is_address_changed">
+                <aspect name="to_order" />
+            </field>
+        </fieldset>
+    </scope>
+</config>

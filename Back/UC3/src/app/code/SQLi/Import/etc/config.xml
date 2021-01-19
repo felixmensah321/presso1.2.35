@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) SQLi (http://www.sqli.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <import>
+            <customer>
+                <filename>customers.csv</filename>
+                <import_folder>customers_import/</import_folder>
+                <anonymous>0</anonymous>
+                <anonymous_max_length>3</anonymous_max_length>
+            </customer>
+        </import>
+    </default>
+</config>

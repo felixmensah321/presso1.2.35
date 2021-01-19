@@ -1,0 +1,40 @@
+{
+    "twint_pos": {
+        "column": {
+            "twint_pos_id": true,
+            "nessoft_pos_id": true,
+            "cashier_id": true,
+            "name": true,
+            "street1": true,
+            "street2": true,
+            "street3": true,
+            "postcode": true,
+            "city": true,
+            "country_id": true,
+            "region_id": true,
+            "google_analytics": true,
+            "nessoft_stock_id": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "index": {
+            "TWINT_POS_NESSOFT_POS_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "TWINT_POS_CASHIER_ID_ADMIN_USER_USER_ID": true
+        }
+    },
+    "twint_pos_products": {
+        "column": {
+            "link_id": true,
+            "twint_pos_id": true,
+            "product_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "TWINT_POS_PRODUCTS_TWINT_POS_ID_TWINT_POS_TWINT_POS_ID": true,
+            "TWINT_POS_PRODUCTS_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID": true
+        }
+    }
+}

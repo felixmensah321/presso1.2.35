@@ -1,0 +1,34 @@
+{
+    "twint_session": {
+        "column": {
+            "entity_id": true,
+            "session_id": true,
+            "custom_params": true,
+            "state": true,
+            "created_at": true,
+            "customer_relation_id": true,
+            "pairing_id": true,
+            "pairing_status": true,
+            "magento_order_id": true,
+            "twint_order_id": true
+        },
+        "index": {
+            "TWINT_SESSION_SESSION_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "TWINT_SESSION_SESSION_ID_CUSTOM_PARAMS": true,
+            "TWINT_SESSION_SESSION_ID_ENTITY_ID": true
+        }
+    },
+    "sales_order": {
+        "column": {
+            "twint_order_id": true
+        }
+    },
+    "sales_order_grid": {
+        "column": {
+            "twint_order_id": true
+        }
+    }
+}

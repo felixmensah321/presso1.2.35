@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="nespresso_order_content_FR" label="FR Nespresso Order Content" file="FR_Content.html" type="html" module="SQLi_Email" area="frontend"/>
+    <template id="nespresso_order_header_FR" label="FR Nespresso Order Header" file="FR_Header.html" type="html" module="SQLi_Email" area="frontend"/>
+    <template id="nespresso_order_footer_FR" label="FR Nespresso Order footer" file="FR_Footer.html" type="html" module="SQLi_Email" area="frontend"/>
+    <template id="nespresso_order_content_IT" label="IT Nespresso Order Content" file="IT_Content.html" type="html" module="SQLi_Email" area="frontend"/>
+    <template id="nespresso_order_header_IT" label="IT Nespresso Order header" file="IT_Header.html" type="html" module="SQLi_Email" area="frontend"/>
+    <template id="nespresso_order_footer_IT" label="IT Nespresso Order footer" file="IT_Footer.html" type="html" module="SQLi_Email" area="frontend"/>
+    <template id="nespresso_order_header_DE" label="DE Nespresso Order header" file="DE_Header.html" type="html" module="SQLi_Email" area="frontend"/>
+    <template id="nespresso_order_footer_DE" label="DE Nespresso Order footer" file="DE_Footer.html" type="html" module="SQLi_Email" area="frontend"/>
+    <template id="nespresso_order_content_DE" label="DE Nespresso Order Content" file="DE_Content.html" type="html" module="SQLi_Email" area="frontend"/>
+</config>
+    <!-- here you define your email template and its template location path-->

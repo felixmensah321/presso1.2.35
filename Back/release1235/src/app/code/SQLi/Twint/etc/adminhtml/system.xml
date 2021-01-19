@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) SQLi (http://www.sqli.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="nespresso" translate="label" sortOrder="0">
+            <label>Nespresso</label>
+        </tab>
+        <section id="twint" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Twint</label>
+            <tab>nespresso</tab>
+            <resource>Nespresso_Configuration::twint</resource>
+            <group id="mock_mode" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Mock</label>
+                <field id="mock_mode" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Mock Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If set to Yes, Twint API won't be engaged.</comment>
+                </field>
+            </group>
+            <group id="notify_checkin" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Notify Checkin</label>
+                <field id="username" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Username</label>
+                    <comment>Username for the HTTP Auth</comment>
+                </field>
+                <field id="password" translate="label" type="password" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Password</label>
+                    <comment>Password for the HTTP Auth</comment>
+                </field>
+                <field id="loyalty" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Loyalty</label>
+                    <comment>Name of the loyalty program</comment>
+                </field>
+                <field id="terminal_id" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>External Terminal Id</label>
+                </field>
+                <field id="callback_url" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Callback URL</label>
+                    <comment>Callback URL called by Twint to do the redirection when scanning the QR Code</comment>
+                </field>
+                <field id="beacon_string" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Beacon identifier</label>
+                    <comment>Base beacon identifier used to generate a QR code</comment>
+                </field>
+            </group>
+            <group id="soap" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>SOAP</label>
+                <field id="wsdl" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Wsdl URL</label>
+                </field>
+                <field id="wsdl_uses_fallback" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Wsdl Local Fallback</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If set to Yes, we fallback to the TWINTMerchantService_v2_1.wsdl file located in the magento root directory. If set to No, we'll use the Wsdl URL.</comment>
+                </field>
+                <field id="merchant_id" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>MerchantUuid</label>
+                    <comment>Merchant identifier</comment>
+                </field>
+                <field id="cash_register_id" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>CashRegisterId</label>
+                    <comment>Cash Register Identifier</comment>
+                </field>
+                <field id="https_certificate" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>HTTPS certificate</label>
+                    <backend_model>SQLi\Twint\Model\Config\Backend\Certificate</backend_model>
+                    <upload_dir config="system" scope_info="1">certificate</upload_dir>
+                    <comment>Allowed type : .pem</comment>
+                </field>
+                <field id="https_certificate_passphrase" translate="label" type="password" sortOrder="70" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>HTTPS certificate passphrase</label>
+                </field>
+                <field id="test" type="text" translate="label,comment" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Test</label>
+                    <comment>Test the SOAP call with saved parameters. Refresh before if parameters changed.</comment>
+                    <frontend_model>SQLi\Twint\Block\Adminhtml\System\Config\TestSOAP</frontend_model>
+                </field>
+            </group>
+        </section>
+        <section id="front" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Front</label>
+            <tab>nespresso</tab>
+            <resource>Nespresso_Configuration::front</resource>
+            <group id="url" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>URLs</label>
+                <field id="404" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>404 page</label>
+                </field>
+            </group>
+            <group id="default_params" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Default Parameters</label>
+                <field id="category" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Default CategoryId</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

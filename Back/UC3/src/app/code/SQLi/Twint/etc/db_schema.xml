@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) SQLi (http://www.sqli.com/)
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="twint_session" resource="default" engine="innodb" comment="Twint Session">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Entity ID"/>
+        <column xsi:type="varchar" name="session_id" length="16" comment="Session id" />
+        <column xsi:type="blob" name="custom_params" nullable="true" comment="Custom Param"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created At"/>
+        <column xsi:type="varchar" name="customer_relation_id" nullable="true" length="255" comment="Customer Relation Identifier"/>
+        <column xsi:type="varchar" name="pairing_id" nullable="true" length="255" comment="Pairing Identifier"/>
+        <column xsi:type="varchar" name="state" nullable="true" length="32" comment="State"/>
+        <column xsi:type="varchar" name="magento_order_id" nullable="true" length="32" comment="Magento Order Id"/>
+        <column xsi:type="varchar" name="twint_order_id" nullable="true" length="255" comment="Twint Order Id"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="TWINT_SESSION_SESSION_ID_CUSTOM_PARAMS">
+            <column name="session_id"/>
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="TWINT_SESSION_SESSION_ID" indexType="btree">
+            <column name="session_id"/>
+        </index>
+    </table>
+    <table name="sales_order" resource="sales" comment="Sales Flat Order">
+        <column xsi:type="varchar" name="twint_order_id" nullable="true" length="255" comment="Twint Order Id" />
+    </table>
+    <table name="sales_order_grid" resource="sales" comment="Sales Flat Order Grid">
+        <column xsi:type="varchar" name="twint_order_id" nullable="true" length="255" comment="Twint Order Id"/>
+    </table>
+</schema>

@@ -1,0 +1,467 @@
+<style type="text/css">
+    /*content*/
+    table {
+        border-collapse: collapse;
+        margin: 0 auto;
+        background-color: #000000;
+        color: #ffffff;
+    }
+    td.heading{
+        -moz-hyphens:auto;-webkit-hyphens:auto;margin:0;border-collapse:collapse!important;font-family:Trebuchet MS,Helvetica,arial,sans-serif;font-weight:400;hyphens:auto;mso-line-height-rule:exactly;padding:0;text-align:center;vertical-align:middle;word-wrap:break-word
+    }
+    td, th {
+        -moz-hyphens:auto;-webkit-hyphens:auto;margin:0;border-collapse:collapse!important;font-family:Trebuchet MS,Helvetica,arial,sans-serif;font-weight:400;hyphens:auto;mso-line-height-rule:exactly;padding:0;word-wrap:break-word
+    }
+    td div{
+        margin:0 0 0 6%;font-size: 18px;
+    }
+    td div span{
+        font-size: 16px; font-weight: bold; color: #cc9d49;
+    }
+    .link{
+        outline: none;font-size: 16px; color: #cccccc; text-decoration: underline;
+    }
+    .content-p{
+        margin-bottom: 30px;
+    }
+    .heading{
+        font-size: 22px; font-weight: bold; text-align:center; line-height: 32px;text-transform: uppercase;margin:5% 0 1% 0;
+    }
+    .heading-p{
+        font-size: 15px; font-weight: bold; text-align:center; line-height: 24px;text-transform: uppercase;color: #ffffff;margin: 12% 0 12% 0;
+    }
+    .hr-divider{
+        border: 0; display: block; margin-left: auto;margin-right: auto;width: 86%;
+    }
+    caption{
+        display:none!important;mso-hide: all;max-height: 0;font-size: 0;line-height: 0;
+    }
+    tr {
+        background-color: #000000;
+    }
+    .tr-section-secondary{
+        margin-top:200%;
+    }
+    .bg-section-secondary{
+        background-color:#1a1a1a !important;
+    }
+    .bg-section-primary
+    {
+        background-color:#666 !important;
+    }
+    .tr-section-secondary td{
+        font-family: Trebuchet MS, Helvetica, arial, sans-serif; padding: 0 9px 0 10px;
+    }
+    .tr-section-secondary div{
+        font-size: 14px; color: #ffffff; text-align: left; margin:0% 0% 0% 0%; padding: 0; list-style: none;
+    }
+    .label{
+        font-size: 14px; color: #a3a6a8;margin:0 0 0 6%;
+    }
+    .twint-header-img{
+        width:180px;height:120px;
+    }
+    .twint-header-img img{
+        margin:5% 5% 0 5%; outline: none;border: none;width: 60%;height:auto;
+    }
+    /*end content*/
+
+    /* Client-specific Styles */
+    #outlook a {
+        padding: 0;
+    }
+
+    .ReadMsgBody {
+        width: 100%;
+    }
+
+    .ExternalClass {
+        width: 100%;
+    }
+
+    body {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        -webkit-font-smoothing: antialiased;
+        font-family: Trebuchet MS, Helvetica, arial, sans-serif;
+    }
+
+    .yshortcuts,
+    .yshortcuts a,
+    .yshortcuts a:link,
+    .yshortcuts a:visited,
+    .yshortcuts a:hover,
+    .yshortcuts a span {
+        text-decoration: none !important;
+        border-bottom: none !important;
+        background: none !important;
+    }
+
+    /*link style*/
+
+    td {
+        font-family: Trebuchet MS, Helvetica, arial, sans-serif;
+    }
+
+    td[class~=fullCol] {
+        padding: 40px 50px;
+    }
+
+    td[class~=pre] {
+        padding: 10px 50px;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        color: #666666;
+        text-decoration: none;
+        outline: none;
+    }
+
+    a:hover {
+        text-decoration: none
+    }
+
+    @media only screen and (max-width: 599px) {
+        td[class~=module-td] {
+            padding: 20px !important;
+        }
+
+        td[class~=fullCol],
+        td[class~=pre] {
+            padding: 30px !important;
+        }
+
+        table[class~=wrap] {
+            width: 100% !important;
+        }
+
+        table[class~=row] {
+            width: 440px !important;
+        }
+
+        img {
+            height: auto !important;
+        }
+
+        img[class~=line] {
+            height: 4px !important;
+        }
+
+        img[class~=img] {
+            width: 100% !important;
+            height: auto !important;
+            max-width: 100% !important;
+            display: block !important;
+        }
+
+        img[class~=title-border-img] {
+            height: 1px !important;
+        }
+
+        table[class~=logo] {
+            width: 100% !important;
+            margin-bottom: 10px !important;
+        }
+
+        table[class~=menu-tb] {
+            float: none !important;
+            margin: 0 auto !important;
+        }
+
+        td[class~=menu-box] {
+            height: 40px !important;
+        }
+
+        table[class~=menu] .content {
+            text-align: center !important;
+        }
+
+        td[class~=header] {
+            padding-bottom: 10px !important;
+        }
+
+        td[class~=top-bar] {
+            padding: 5px 10px !important;
+        }
+
+        table[class=footer-left] {
+            width: 100% !important;
+        }
+
+        table[class=footer-left] td {
+            text-align: center !important;
+        }
+
+        table[class=footer-right] {
+            width: 100% !important;
+        }
+
+        table[class=footer-right] td {
+            text-align: center !important;
+        }
+
+        td[class~=col-1-3] {
+            width: 50% !important;
+        }
+
+        td[class~=col-2-3] {
+            width: 50% !important;
+        }
+
+        table[class~=col3] {
+            width: 33% !important;
+        }
+
+        table[class~=col3_5] {
+            width: 40% !important;
+        }
+
+        table[class~=col4] {
+            width: 50% !important;
+        }
+
+        table[class~=col4double] {
+            width: 100% !important;
+        }
+
+        table[class~=col3] .general-img-td {
+            padding-right: 10px !important;
+        }
+
+        table[class~=col3] .general-td {
+            padding-right: 10px !important;
+        }
+
+        table[class~=col4] .general-img-td {
+            padding-right: 10px !important;
+        }
+
+        table[class~=col4] .general-td {
+            padding-right: 10px !important;
+        }
+
+        td[class~=general-img-td][class~=p-l-r-20] {
+
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        td[class~=full] {
+            width: 100% !important;
+            float: left !important;
+        }
+
+        table[class~=full] {
+            width: 100% !important;
+            float: left !important;
+        }
+
+        td[class~=full] .center {
+            text-align: center !important;
+            padding: 10px !important;
+        }
+
+        td[class~=center] {
+            text-align: center !important;
+            padding: 10px !important;
+
+        }
+
+        table[class~=banner] td {
+            text-align: center !important;
+        }
+
+        td[class~=hide480] {
+            display: none !important;
+        }
+
+        span[class~=hide480] {
+            display: none !important;
+        }
+
+        img[class~=hide-pc] {
+            display: inline !important;
+            width: 19px !important;
+            height: auto !important;
+            visibility: visible !important;
+
+        }
+
+        table[class~=menu2] .content {
+            padding-right: 0 !important;
+        }
+
+        table[class~=col2_5] {
+            width: 49% !important;
+        }
+    }
+
+    @media only screen and (max-width: 439px) {
+        td.responsive_row, td[class~=responsive_row] {
+            width: 100% !important;
+            float: left !important;
+            display: block !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        table[class~=col2] {
+            width: 100% !important;
+        }
+
+        .noBlueLinks a {
+            color: #999999 !important;
+            text-decoration: none !important;
+        }
+
+        table[class~=col3_5] {
+            width: 100% !important;
+        }
+
+        table[class~=col3fix] {
+            width: 100% !important;
+        }
+
+        td [class~=footer] {
+            text-align: center !important;
+        }
+
+        td [class~=footer] div {
+            text-align: center !important;
+        }
+
+        td[class=coffeTable] {
+            text-align: center !important;
+        }
+
+        table[class~=zebra] > tbody > tr {
+            height: auto !important;
+        }
+
+        table[class~=zebra] td {
+            padding: 0 10px !important;
+        }
+
+        td[class~=module-td] {
+            padding: 20px !important;
+        }
+
+        table[class~=row] {
+            width: 100% !important;
+        }
+
+        table[class~=logo] img {
+            max-width: 100% !important;
+        }
+
+        table[class~=menu-tb] {
+            width: 100% !important;
+        }
+
+        table[class~=menu] .content {
+            padding: 4px 5px !important;
+        }
+
+        table[class~=top-bar] {
+            margin-bottom: 0 !important;
+        }
+
+        td[class~=col-1-3] {
+            width: 100% !important;
+            padding-bottom: 0 !important;
+            float: left !important;
+            display: block !important;
+
+        }
+
+        td[class~=p-d0] {
+            padding-bottom: 0 !important;
+        }
+
+        td[class~=col-2-3] {
+            width: 100% !important;
+        }
+
+        table[class~=col3] {
+            width: 100% !important;
+        }
+
+        td[class~=p-l-r-20] {
+
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+
+        table[class~=col2_5] {
+            width: 49% !important;
+
+        }
+    }
+
+
+    @media only screen and (max-width: 339px) {
+        td.responsive_row, td[class~=responsive_row] {
+            width: 100% !important;
+            float: left !important;
+            display: block !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .noBlueLinks a {
+            color: #999999 !important;
+            text-decoration: none !important;
+        }
+
+        img[class~=capsule] {
+            display: none !important;
+        }
+
+        td[class~=module-td] {
+            padding: 20px !important;
+        }
+
+        table[class~=menu] .h4 {
+            font-size: 14px !important;
+            line-height: 21px !important;
+
+        }
+
+        td[class~=top-bar] {
+            padding: 5px 10px !important;
+        }
+
+        table[class~=menu-tb] {
+            width: 100% !important;
+        }
+
+        table[class~=logo] img {
+            max-width: 260px !important;
+        }
+    }
+</style>
+
+<table width="600">
+    <tr>
+        <td align="left" class="twint-header-img">
+            <a target="_blank" href="https://www.nespresso.com/ch/fr?utm_id=352d06d1-12ec-4139-a03d-265a5466f053" style="color: #666666; text-decoration: none; outline: none;">
+    <span>
+        <img src="http://www.nespresso.com/shared_res/newsletter/transactional/img/nespressoLogo2.png" alt="">
+    </span>
+            </a>
+        </td>
+        <td align="right" class="twint-header-img">
+<span>
+    <img src={{media url='images/twint_header.png'}} alt="">
+</span>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <img src="http://www.nespresso.com/shared_res/newsletter/transactional/img/shipping_confirmation.jpg" alt="Conferma della spedizione" title="Conferma della spedizione" hspace="0" vspace="0" border="0" style="border: 0; display: block; max-width: 100%;  border-radius: 0;"/>
+        </td>
+    </tr>
+</table>

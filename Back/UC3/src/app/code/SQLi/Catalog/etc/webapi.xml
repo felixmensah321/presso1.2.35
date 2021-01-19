@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) SQLi (http://www.sqli.com/)
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <!-- Categories -->
+    <route url="/V1/nespresso/categories/:categoryId" method="GET">
+        <service class="SQLi\Catalog\Api\CategoryRepositoryInterface" method="get" />
+        <resources>
+            <resource ref="SQLi_Catalog::categories_get" />
+        </resources>
+    </route>
+    <route url="/V1/nespresso/categories" method="GET">
+        <service class="SQLi\Catalog\Api\CategoryRepositoryInterface" method="getList" />
+        <resources>
+            <resource ref="SQLi_Catalog::categories_list" />
+        </resources>
+    </route>
+    <!-- Products -->
+    <route url="/V1/nespresso/products" method="GET">
+        <service class="Magento\Catalog\Api\ProductRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="SQLi_Catalog::products_get" />
+        </resources>
+    </route>
+    <route url="/V1/nespresso/products/:sku" method="GET">
+        <service class="Magento\Catalog\Api\ProductRepositoryInterface" method="get"/>
+        <resources>
+            <resource ref="SQLi_Catalog::products_get" />
+        </resources>
+    </route>
+    <route url="/V1/nespresso/energetic_labels" method="GET">
+        <service class="SQLi\Catalog\Api\ProductRepositoryInterface" method="getEnergeticLabels"/>
+        <resources>
+            <resource ref="SQLi_Catalog::energetic_labels" />
+        </resources>
+    </route>
+</routes>

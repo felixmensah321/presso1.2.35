@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) SQLi (http://www.sqli.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="SQLi\Sales\Api\OrderManagementInterface"
+                type="SQLi\Sales\Model\ResourceModel\OrderManagement" />
+    <virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid">
+        <arguments>
+            <argument name="columns" xsi:type="array">
+                <item name="nespresso_club_member_id" xsi:type="string">sales_order.nespresso_club_member_id</item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

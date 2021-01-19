@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) SQLi (http://www.sqli.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="daily_orders_export" instance="SQLi\Export\Model\Export\Order" method="createOrderExportFile">
+            <config_path>crontab/default/jobs/daily_orders_export/schedule/cron_expr</config_path>
+            <schedule>15 16 * * *</schedule>
+        </job>
+        <job name="daily_orders_export2" instance="SQLi\Export\Model\Export\Order" method="createOrderExportFileBis">
+            <config_path>crontab/default/jobs/daily_orders_export2/schedule/cron_expr</config_path>
+            <schedule>15 19 * * *</schedule>
+        </job>
+    </group>
+</config>

@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) SQLi (http://www.sqli.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="nespresso" translate="label" sortOrder="0">
+            <label>Nespresso</label>
+        </tab>
+        <section id="export" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Export</label>
+            <tab>nespresso</tab>
+            <resource>Nespresso_Configuration::export</resource>
+            <group id="order" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Order</label>
+                <field id="filename_prefix" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Filename prefix</label>
+                    <comment>Generic filename prefix that will be concatenated with the date of the export. (ex. orders_20191118.csv, where orders_ is the prefix)</comment>
+                </field>
+                <field id="export_folder" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Export folder</label>
+                    <comment>Folder where we will place the export file with base path /var/export/, put slash at the end (ex: orders_export/, that give us the following location [magento_root]/var/export/orders_export/)</comment>
+                </field>
+                <field id="export_cron_schedule" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Export cron schedule</label>
+                    <comment><![CDATA[* * * * * command to be executed <br />
+                        | | | | | <br />
+                        | | | | +----- Day of week (0 - 7) (Sunday=0 or 7) <br />
+                        | | | +------- Month (1 - 12) <br />
+                        | | +--------- Day of month (1 - 31) <br />
+                        | +----------- Hour (0 - 23) <br />
+                        +------------- Minute (0 - 59)]]></comment>
+                    <backend_model>SQLi\Export\Helper\CronConfig</backend_model>
+                </field>
+            </group>
+            <group id="xml_purchase_point" translate="label" type="text" sortOrder="21" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>XML Values Purchase Point</label>
+                <field id="export_sales_movement_code_purchase_point" translate="label" type="text" sortOrder="22" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>SALES MOVEMENT CODE</label>
+                </field>
+                <field id="export_order_source_purchase_point" translate="label" type="text" sortOrder="23" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>ORDER SOURCE</label>
+                </field>
+                <field id="export_stock_purchase_point" translate="label" type="text" sortOrder="24" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>STOCK</label>
+                </field>
+                <field id="export_delivery_mode_purchase_point" translate="label" type="text" sortOrder="25" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>DELIVERY MODE</label>
+                </field>
+                <field id="export_payment_mode_purchase_point" translate="label" type="text" sortOrder="26" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>PAYMENT MODE</label>
+                </field>
+            </group>
+            <group id="xml_delivery" translate="label" type="text" sortOrder="27" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>XML Values Delivery</label>
+                <field id="export_sales_movement_code_delivery" translate="label" type="text" sortOrder="28" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>SALES MOVEMENT CODE</label>
+                </field>
+                <field id="export_order_source_delivery" translate="label" type="text" sortOrder="29" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>ORDER SOURCE</label>
+                </field>
+                <field id="export_stock_delivery" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>STOCK</label>
+                </field>
+                <field id="export_delivery_mode_delivery" translate="label" type="text" sortOrder="31" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>DELIVERY MODE</label>
+                </field>
+                <field id="export_delivery_mode_weekend_delivery" translate="label" type="text" sortOrder="31" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>DELIVERY MODE WEEKEND</label>
+                </field>
+                <field id="export_payment_mode_delivery" translate="label" type="text" sortOrder="32" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>PAYMENT MODE</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

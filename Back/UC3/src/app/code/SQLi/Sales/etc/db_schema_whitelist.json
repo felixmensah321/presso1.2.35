@@ -1,0 +1,24 @@
+{
+    "sales_order": {
+        "column": {
+            "nespresso_club_member_id": true,
+            "nespresso_purchase_point_id": true,
+            "is_address_different": true,
+            "is_address_changed": true,
+            "exported_at": true
+        }
+    },
+    "quote": {
+        "column": {
+            "nespresso_club_member_id": true,
+            "nespresso_purchase_point_id": true,
+            "is_address_different": true,
+            "is_address_changed": true
+        }
+    },
+    "sales_order_grid": {
+        "column": {
+            "nespresso_club_member_id": true
+        }
+    }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) SQLi (http://www.sqli.com/)
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sales_order" resource="sales" comment="Sales Flat Order">
+        <column xsi:type="varchar" name="nespresso_club_member_id" nullable="true" length="32" comment="Nespresso Club Member Id" />
+        <column xsi:type="varchar" name="nespresso_purchase_point_id" nullable="true" length="32" comment="Nespresso Purchase Point Id" />
+        <column xsi:type="varchar" name="is_address_different" nullable="true" length="1" comment="Is Address different" disabled="true"/>
+        <column xsi:type="varchar" name="is_address_changed" nullable="true" length="1" comment="Is Address Changed"/>
+        <column xsi:type="timestamp" name="exported_at" on_update="false" nullable="true" comment="Exported Date"/>
+    </table>
+    <table name="sales_order_grid" resource="sales" comment="Sales Flat Order Grid">
+        <column xsi:type="varchar" name="nespresso_club_member_id" nullable="true" length="32" comment="Nespresso Club Member Id"/>
+    </table>
+    <table name="quote" resource="checkout" comment="Sales Flat Quote">
+        <column xsi:type="varchar" name="nespresso_club_member_id" nullable="true" length="32" comment="Nespresso Club Member Id" />
+        <column xsi:type="varchar" name="nespresso_purchase_point_id" nullable="true" length="32" comment="Nespresso Purchase Point Id" />
+        <column xsi:type="varchar" name="is_address_different" nullable="true" length="1" comment="Is Address different" disabled="true"/>
+        <column xsi:type="varchar" name="is_address_changed" nullable="true" length="1" comment="Is Address Changed"/>
+    </table>
+</schema>

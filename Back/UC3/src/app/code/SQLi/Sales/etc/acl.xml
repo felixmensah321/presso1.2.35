@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/ etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="SQLi_Core::twint" title="Twint" translate="title">
+                    <resource id="SQLi_Sales::products" title="Products" translate="title" sortOrder="100">
+                        <resource id="SQLi_Sales::orders_get" title="Get an order" translate="title" sortOrder="10"/>
+                        <resource id="SQLi_Sales::orders_list" title="Get list of orders for a point of sale" translate="title" sortOrder="20"/>
+                        <resource id="SQLi_Sales::orders_create" title="Create an order" translate="title" sortOrder="30"/>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

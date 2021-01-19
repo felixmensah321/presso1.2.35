@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) SQLi (http://www.sqli.com/)
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <!-- Orders -->
+    <route url="/V1/nespresso/orders/:orderId" method="GET">
+        <service class="SQLi\Sales\Api\OrderRepositoryInterface" method="get" />
+        <resources>
+            <resource ref="SQLi_Sales::orders_get" />
+        </resources>
+    </route>
+    <route url="/V1/nespresso/orders/create" method="POST">
+        <service class="SQLi\Sales\Api\OrderManagementInterface" method="createOrder"/>
+        <resources>
+            <resource ref="SQLi_Sales::orders_create"/>
+        </resources>
+    </route>
+</routes>

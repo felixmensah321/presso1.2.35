@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="SQLi\Catalog\Api\CategoryRepositoryInterface"
+                type="SQLi\Catalog\Model\CategoryRepository" />
+    <preference for="SQLi\Catalog\Api\ProductRepositoryInterface"
+                type="SQLi\Catalog\Model\ProductRepository" />
+</config>

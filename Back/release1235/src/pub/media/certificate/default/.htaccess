@@ -1,0 +1,4 @@
+<FilesMatch "\.(pem)$">
+Order allow,deny
+Deny from all
+</FilesMatch>

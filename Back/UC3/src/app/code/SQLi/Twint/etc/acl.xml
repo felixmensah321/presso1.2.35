@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/ etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="SQLi_Core::twint" title="Twint" translate="title">
+                    <resource id="SQLi_Twint::general" title="General" translate="title" sortOrder="500">
+                        <resource id="SQLi_Twint::check_and_invalidate" title="Check And Invalidate" translate="title" sortOrder="10"/>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

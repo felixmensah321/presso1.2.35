@@ -1,0 +1,15 @@
+stages:
+  - deploy
+
+deploy:integration:
+  image: ruby:latest
+  stage: deploy
+  before_script:
+  - echo $CI_COMMIT_REF_NAME
+  - cd /home/deployer-agent/deploy/nespressotwint/cap
+  environment:
+    name: deploy-server
+    url: 10.41.22.123
+  when: manual
+  script:
+    - cap staging deploy BRANCH=$CI_COMMIT_REF_NAME

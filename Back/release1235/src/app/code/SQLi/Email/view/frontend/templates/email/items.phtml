@@ -1,0 +1,171 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+
+/** @var $block \Magento\Sales\Block\Order\Email\Items */
+?>
+<?php $_order = $block->getOrder();
+$capsules = [];
+$machines = [];
+$accessories = [];
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+?>
+<?php if ($_order) : ?>
+    <?php $_items = $_order->getAllItems(); ?>
+    <?php foreach ($_items as $_item) :
+
+        $productId = $_item->getProductId();
+        $product = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
+        ?>
+
+        <?php if (!$_item->getParentItem()) : ?>
+        <?php
+        if ($product['nb_capsules'] > 1) :
+            $capsules[] = $_item;
+        elseif ($product['energetic_label']) :
+            $machines[] = $_item;
+        else :
+            $accessories[] = $_item;
+        endif;
+    endif; ?>
+    <?php endforeach; ?>
+    <?php if (count($capsules) > 0) : ?>
+            <caption style="display:none!important;mso-hide: all;max-height: 0;font-size: 0;line-height: 0;">
+                Capsules
+                achetées
+            </caption>
+            <thead>
+            <tr>
+                <th colspan="3" style="color: #eda451; font-style: italic; text-transform: uppercase;text-align: left;">
+                <span
+                    style="color: #eda451; font-style: italic; text-transform: uppercase;text-align: left; margin:1%;">Capsules</span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($capsules as $capsule) : ?>
+                    <tr style="height: 45px;">
+
+                        <?php if (!$capsule->getParentItem()) : ?>
+
+                            <td align="left" class=" "
+                                style="font-size: 14px; width: 260px; font-family: Trebuchet MS, Helvetica, arial, sans-serif; padding: 0px 10px;">
+                            <span
+                                style="font-size: 12px; color: #ffffff; line-height: 16px; word-wrap: break-word; word-break: break-all;">            <?php echo array_key_exists($capsule['name'], $capsule) ? $capsule['name'] : $capsule->getName()?></span>
+                            </td>
+                            <td align="right" class="coffeeTable"
+                                style="font-size: 14px; font-family: Trebuchet MS, Helvetica, arial, sans-serif; padding: 0px 10px; width: 150px;">
+                            <span
+                                style="font-size: 12px; color: #ffffff; line-height: 16px; word-wrap: break-word; word-break: break-all;">                <?php echo array_key_exists($capsule['qty_ordered'], $capsule) ? number_format($capsule['qty_ordered']) : number_format($capsule->getQtyOrdered()) ?> x                 <?php echo number_format((float)$capsule['base_price_incl_tax'], 2, '.', ''); ?></span>
+                            </td>
+                            <td align="right" class="coffeeTable"
+                                style="font-size: 14px; font-family: Trebuchet MS, Helvetica, arial, sans-serif; padding: 0px 10px; width: 110px;">
+                            <span
+                                style="font-size: 12px; color: #ffffff; line-height: 16px; word-wrap: break-word; word-break: break-all;"><?php echo array_key_exists($capsule['row_total_incl_tax'], $capsule) ? number_format((float)$capsule['row_total_incl_tax'], 2, '.', '') : number_format((float)$capsule->getRowTotalInclTax(), 2, '.', '') ?></span>
+                            </td>
+
+
+                        <?php endif; ?>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+    <?php endif; ?>
+
+    <?php if (count($machines) > 0) : ?>
+        <table role="grid" align="center" cellspacing="0" cellpadding="0" border="0" class="zebra"
+               style="font-family: Trebuchet MS, Helvetica, arial, sans-serif; font-size: 12px; color: #ffffff !important; background-color: #1a1a1a !important; text-align: left;width:90%;margin:5% 5% 0 5%;">
+            <caption style="display:none!important;mso-hide: all;max-height: 0;font-size: 0;line-height: 0;">
+                Machines
+                achetées
+            </caption>
+            <thead>
+            <tr>
+                <th colspan="3" style="color: #eda451; font-style: italic; text-transform: uppercase;text-align: left;">
+                <span
+                    style="color: #eda451; font-style: italic; text-transform: uppercase;text-align: left;">Machines</span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <?php foreach ($machines as $machine) : ?>
+                <tr style="height: 55px;">
+                    <?php if (!$machine->getParentItem()) : ?>
+
+                        <td align="left" class=" "
+                            style="font-size: 14px; width: 260px; font-family: Trebuchet MS, Helvetica, arial, sans-serif; padding: 0px 10px;">
+                        <span
+                            style="font-size: 12px; line-height: 16px; word-wrap: break-word; word-break: break-all;">            <?php echo array_key_exists($machine['name'], $machine) ? $machine['name'] : $machine->getName() ?></span>
+                        </td>
+                        <td align="right" class="coffeeTable"
+                            style="font-size: 14px; font-family: Trebuchet MS, Helvetica, arial, sans-serif; padding: 0px 10px; width: 150px;">
+                        <span
+                            style="font-size: 12px; line-height: 16px; word-wrap: break-word; word-break: break-all;">                <?php echo array_key_exists($machine['qty_ordered'], $machine) ? number_format($machine['qty_ordered']) : number_format($machine->getQtyOrdered())  ?> x                 <?php echo array_key_exists($machine['base_price_incl_tax'], $machine) ? number_format((float)$machine['base_price_incl_tax'], 2, '.', '') : number_format((float)$machine->getBasePriceInclTax(), 2, '.', ''); ?></span>
+                        </td>
+                        <td align="right" class="coffeeTable"
+                            style="font-size: 14px; font-family: Trebuchet MS, Helvetica, arial, sans-serif; padding: 0px 10px; width: 110px;">
+                        <span
+                            style="font-size: 12px; line-height: 16px; word-wrap: break-word; word-break: break-all;"><?php echo array_key_exists($machine['row_total_incl_tax'], $machine) ? number_format((float)$machine['row_total_incl_tax'], 2, '.', '') : number_format((float)$machine->getRowTotalInclTax(), 2, '.', '') ?></span>
+                        </td>
+
+
+                    <?php endif; ?>
+                </tr>
+            <?php endforeach; ?>
+
+            </tbody>
+        </table>
+    <?php endif; ?>
+
+    <?php if (count($accessories) > 0) : ?>
+        <table role="grid" align="center" cellspacing="0" cellpadding="0" border="0" class="zebra"
+               style="font-family: Trebuchet MS, Helvetica, arial, sans-serif; font-size: 12px; color: #ffffff !important; background-color: #1a1a1a !important; text-align: left;width:90%;margin:5% 5% 0 5%;">
+            <caption style="display:none!important;mso-hide: all;max-height: 0;font-size: 0;line-height: 0;">
+                Accessoires
+                achetées
+            </caption>
+            <thead>
+            <tr>
+                <th colspan="3" style="font-style: italic; text-transform: uppercase;text-align: left;">
+                <span
+                    style="color: #eda451; font-style: italic; text-transform: uppercase;text-align: left;">Accessoires</span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <?php foreach ($accessories as $accessory) : ?>
+                <tr style="height: 55px;">
+                    <?php if (!$accessory->getParentItem()) : ?>
+
+                        <td align="left" class=" "
+                            style="font-size: 14px; width: 260px; font-family: Trebuchet MS, Helvetica, arial, sans-serif; padding: 0px 10px;">
+                        <span
+                            style="font-size: 12px; line-height: 16px; word-wrap: break-word; word-break: break-all;">            <?php echo array_key_exists($accessory['name'], $accessory) ? $accessory['name'] : $accessory->getName()?></span>
+                        </td>
+                        <td align="right" class="coffeeTable"
+                            style="font-size: 14px; font-family: Trebuchet MS, Helvetica, arial, sans-serif; padding: 0px 10px; width: 150px;">
+                        <span
+                            style="font-size: 12px; line-height: 16px; word-wrap: break-word; word-break: break-all;">                <?php echo array_key_exists($accessory['qty_ordered'], $accessory) ? number_format($accessory['qty_ordered']) : number_format($accessory->getQtyOrdered())?> x <?php echo array_key_exists($accessory['base_price_incl_tax'], $accessory) ? number_format((float)$accessory['base_price_incl_tax'], 2, '.', '') : number_format((float)$accessory->getBasePriceInclTax(), 2, '.', ''); ?></span>
+                        </td>
+                        <td align="right" class="coffeeTable"
+                            style="font-size: 14px; font-family: Trebuchet MS, Helvetica, arial, sans-serif; padding: 0px 10px; width: 110px;">
+                        <span
+                            style="font-size: 12px; line-height: 16px; word-wrap: break-word; word-break: break-all;"><?php echo array_key_exists($accessory['row_total_incl_tax'], $accessory) ? number_format((float)$accessory['row_total_incl_tax'], 2, '.', '') : number_format((float)$accessory->getRowTotalInclTax(), 2, '.', '') ?></span>
+                        </td>
+
+
+                    <?php endif; ?>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php endif; ?>
+
+    <?= $block->getChildHtml('order_totals') ?>
+<?php endif; ?>

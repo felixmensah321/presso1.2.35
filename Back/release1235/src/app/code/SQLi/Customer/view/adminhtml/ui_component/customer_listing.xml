@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <columns name="customer_columns" class="Magento\Customer\Ui\Component\Listing\Columns">
+        <column name="nespresso_club_member_id" sortOrder="15">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Club member ID</label>
+            </settings>
+        </column>
+    </columns>
+</listing>

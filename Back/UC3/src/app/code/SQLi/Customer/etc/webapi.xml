@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) SQLi (http://www.sqli.com/)
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <!-- Customer Account -->
+    <route url="/V1/nespresso/customer/:nesMemberId" method="GET">
+        <service class="SQLi\Customer\Api\NespressoCustomerRepositoryInterface" method="getCustomerByNesMemberId"/>
+        <resources>
+            <resource ref="SQLi_Customer::customers_get"/>
+        </resources>
+    </route>
+    <!-- Customer login -->
+    <route url="/V1/nespresso/customer/authorize" method="POST">
+        <service class="SQLi\Customer\Api\NespressoCustomerRepositoryInterface" method="authorizeCustomer"/>
+        <resources>
+            <resource ref="SQLi_Customer::customers_authorize"/>
+        </resources>
+    </route>
+    <!-- Customer Auto-login -->
+    <route url="/V1/nespresso/customer/autoAuthorize" method="POST">
+        <service class="SQLi\Customer\Api\NespressoCustomerRepositoryInterface" method="autoAuthorizeCustomer"/>
+        <resources>
+            <resource ref="SQLi_Customer::customers_authorize"/>
+        </resources>
+    </route>
+    <!-- Customer Account creation -->
+    <route url="/V1/nespresso/customer/create" method="POST">
+        <service class="SQLi\Customer\Api\NespressoCustomerRepositoryInterface" method="createCustomer"/>
+        <resources>
+            <resource ref="SQLi_Customer::customers_create"/>
+        </resources>
+        <data>
+            <parameter name="email" force="true">%email%</parameter>
+            <parameter name="tile" force="true">%title%</parameter>
+            <parameter name="lastName" force="true">%lastName%</parameter>
+            <parameter name="firstName" force="true">%firstName%</parameter>
+            <parameter name="address" force="true">%address%</parameter>
+            <parameter name="postalCode" force="true">%postalCode%</parameter>
+            <parameter name="city" force="true">%city%</parameter>
+            <parameter name="optin" force="true">%optin%</parameter>
+            <parameter name="guest" force="true">%guest%</parameter>
+        </data>
+    </route>
+</routes>

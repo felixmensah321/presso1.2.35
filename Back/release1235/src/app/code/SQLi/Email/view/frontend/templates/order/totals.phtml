@@ -1,0 +1,77 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @var $block \Magento\Sales\Block\Order\Totals
+ * @see \Magento\Sales\Block\Order\Totals
+ */
+?>
+
+
+<table role="grid" width="100%" align="center" cellspacing="0" cellpadding="0" border="0" class="summary"
+       style="font-family: Trebuchet MS, Helvetica, arial, sans-serif; font-size: 12px; color: #ffffff; text-align: left;width:90%;margin:0 5% 5% 5%;background-color: #1a1a1a;">
+    <caption style="display:none!important;mso-hide: all;max-height: 0;font-size: 0;line-height: 0;">Résumé de la
+        facture
+    </caption>
+    <thead>
+    <tr>
+        <th colspan="2" style="color: #eda451; font-style: italic; text-transform: uppercase;text-align: left;">
+            <span style="color: #eda451; font-style: italic; text-transform: uppercase;text-align: left;"> </span>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($block->getTotals() as $_code => $_total) : ?>
+        <?php if (strcmp($_total->getBlockName(), "tax") != 0 && strcmp($_total->getBlockName(), "giftcards") != 0) : ?>
+            <?php if (strcmp($_total->getLabel(), "Subtotal") === 0): ?>
+                <tr>
+                    <td align="left" class="fT"
+                        style="font-size: 10px; width: 260px;font-family: Trebuchet MS, Helvetica, arial, sans-serif; padding: 10px 10px 0;">
+                        <span
+                            style="font-weight: bold; font-size: 12px; line-height: 16px; word-wrap: break-word; word-break: break-all;"><?= $block->escapeHtml($_total->getLabel()) ?></span>
+                    </td>
+                    <td align="right" class="fT"
+                        style="font-size: 10px; width: 260px;font-family: Trebuchet MS, Helvetica, arial, sans-serif; padding: 10px 10px 0;">
+                        <span
+                            style="font-weight: bold; font-size: 12px; line-height: 16px; word-wrap: break-word; word-break: break-all;"><?= /* @noEscape */
+                            $block->formatValue($_total) ?></span>
+                    </td>
+                </tr>
+            <?php elseif (strcmp($_total->getLabel(), "Grand Total") === 0): ?>
+                <tr>
+                    <td align="left" class="fT"
+                        style="font-size: 10px; width: 260px;font-family: Trebuchet MS, Helvetica, arial, sans-serif; padding: 0 10px 10px;">
+                        <span
+                            style="font-weight: bold; font-style: italic; font-size: 12px; line-height: 16px; word-wrap: break-word; word-break: break-all;"><?= $block->escapeHtml($_total->getLabel()) ?></span>
+                    </td>
+                    <td align="right" class="fT"
+                        style="font-size: 10px; width: 260px;font-family: Trebuchet MS, Helvetica, arial, sans-serif; padding: 0 10px 10px;">
+                        <span
+                            style="font-weight: bold; font-style: italic; font-size: 12px; line-height: 16px; word-wrap: break-word; word-break: break-all;"><?= /* @noEscape */
+                            $block->formatValue($_total) ?></span>
+                    </td>
+                </tr>
+            <?php else : ?>
+                <tr>
+                    <td align="left" class="fT"
+                        style="font-size: 10px; width: 260px;font-family: Trebuchet MS, Helvetica, arial, sans-serif; padding: 0 10px;">
+                        <span
+                            style="font-size: 12px; line-height: 16px; word-wrap: break-word; word-break: break-all;"><?= $block->escapeHtml($_total->getLabel()) ?></span>
+                    </td>
+                    <td align="right" class="fT"
+                        style="font-size: 10px; width: 260px;font-family: Trebuchet MS, Helvetica, arial, sans-serif; padding: 0 10px;">
+                        <span
+                            style="font-size: 12px; line-height: 16px; word-wrap: break-word; word-break: break-all;"><?= /* @noEscape */
+                            $block->formatValue($_total) ?></span>
+                    </td>
+                </tr>
+
+            <?php endif; ?>
+
+        <?php endif; ?>
+    <?php endforeach ?>
+    </tbody>
+</table>

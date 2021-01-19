@@ -1,0 +1,8 @@
+Dockerfile
+.dockerignore
+.idea
+.git
+.github
+.gitlab-ci.yml
+dev/tests/**
+dev/travis/**

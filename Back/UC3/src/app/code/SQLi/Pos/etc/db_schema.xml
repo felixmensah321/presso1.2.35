@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) SQLi (http://www.sqli.com/)
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="twint_pos" resource="default" engine="innodb" comment="Pos entity table">
+        <column xsi:type="int" name="twint_pos_id" unsigned="true" nullable="false" padding="10" identity="true" comment="Twint Pos ID" />
+        <column xsi:type="varchar" name="nessoft_pos_id" nullable="true" length="32" comment="Nespresso Purchase Point ID" />
+        <column xsi:type="int" name="cashier_id" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="User ID"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Pos Name"/>
+        <column xsi:type="varchar" name="street1" nullable="true" comment="Address 1"/>
+        <column xsi:type="varchar" name="street2" nullable="true" comment="Address 2"/>
+        <column xsi:type="varchar" name="street3" nullable="true" comment="Address 3"/>
+        <column xsi:type="varchar" name="postcode" nullable="true" length="255" comment="Zip/Postal Code"/>
+        <column xsi:type="varchar" name="city" nullable="true" length="255" comment="Is Address Changed"/>
+        <column xsi:type="varchar" name="country_id" nullable="true" comment="ISO Code"/>
+        <column xsi:type="varchar" name="region_id" nullable="true" comment="Region Id"/>
+        <column xsi:type="varchar" name="google_analytics" nullable="true" comment="GA tracking code"/>
+        <column xsi:type="varchar" name="nessoft_stock_id" nullable="true" comment="Nessoft Stock Id"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="twint_pos_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="TWINT_POS_CASHIER_ID_ADMIN_USER_USER_ID" table="twint_pos"
+                    column="cashier_id" referenceTable="admin_user" referenceColumn="user_id" onDelete="CASCADE"/>
+        <index referenceId="TWINT_POS_NESSOFT_POS_ID" indexType="btree">
+            <column name="nessoft_pos_id"/>
+        </index>
+    </table>
+    <table name="twint_pos_products" resource="default" engine="innodb" comment="Pos Products Pivot table">
+        <column xsi:type="int" name="link_id" unsigned="true" nullable="false" padding="10" identity="true" comment="Link ID" />
+        <column xsi:type="int" name="twint_pos_id" unsigned="true" nullable="false" padding="10" identity="false" comment="Twint Pos ID" />
+        <column xsi:type="int" name="product_id" unsigned="true" nullable="false" padding="10" identity="false" comment="Catalog Product ID" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="link_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="TWINT_POS_PRODUCT_TWINT_POS_ID_TWINT_POS_TWINT_POS_ID" table="twint_pos_products" column="twint_pos_id" referenceTable="twint_pos" referenceColumn="twint_pos_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="TWINT_POS_PRODUCT_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID" table="twint_pos_products" column="product_id" referenceTable="catalog_product_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+</schema>
